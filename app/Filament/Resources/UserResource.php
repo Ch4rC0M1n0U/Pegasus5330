@@ -93,6 +93,7 @@ class UserResource extends Resource
                     Tables\Columns\TextColumn::make('Matricule')
                         ->searchable()
                         ->sortable(),
+                        
                     Tables\Columns\TextColumn::make('created_at')
                         ->dateTime()
                         ->sortable()
