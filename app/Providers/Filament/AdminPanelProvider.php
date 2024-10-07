@@ -9,6 +9,7 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Hasnayeen\Themes\ThemesPlugin;
 use Filament\Http\Middleware\Authenticate;
+use Jeffgreco13\FilamentBreezy\BreezyCore;
 use Hasnayeen\Themes\Http\Middleware\SetTheme;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -59,7 +60,17 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
-                ThemesPlugin::make()
+                ThemesPlugin::make(),
+                BreezyCore::make()
+                ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
+                ->myProfile(
+                    shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = true)
+                    shouldRegisterNavigation: true, // Adds a main navigation item for the My Profile page (default = false)
+                    navigationGroup: 'Configuration', // Sets the navigation group for the My Profile page (default = null)
+                    hasAvatars: true, // Enables the avatar upload form component (default = false)
+                    slug: 'my-profile' // Sets the slug for the profile page (default = 'my-profile')
+                )
+
                     
             ])
             ->middleware([
