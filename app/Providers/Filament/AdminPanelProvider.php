@@ -63,6 +63,9 @@ class AdminPanelProvider extends PanelProvider
                 ThemesPlugin::make(),
                 BreezyCore::make()
                 ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
+                ->enableTwoFactorAuthentication(
+                    force: false, // force the user to enable 2FA before they can use the application (default = false)
+                )
                 ->myProfile(
                     shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = true)
                     shouldRegisterNavigation: true, // Adds a main navigation item for the My Profile page (default = false)

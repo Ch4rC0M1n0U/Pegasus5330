@@ -10,10 +10,10 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Facades\Storage;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
-use Filament\Models\Contracts\FilamentUser;
-use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
+
 
 class User extends Authenticatable implements HasAvatar
 {
@@ -24,6 +24,7 @@ class User extends Authenticatable implements HasAvatar
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+
 
 
     /**
