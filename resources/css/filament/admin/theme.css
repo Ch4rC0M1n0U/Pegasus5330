@@ -1,0 +1,59 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+@import '../../../../vendor/kenepa/banner/resources/css/index.css';
+
+
+@config 'tailwind.config.js';
+
+@layer base {
+    html {
+        @apply subpixel-antialiased;
+      }   
+}
+
+
+@layer components {
+    .fi-sidebar-header {
+        @apply !bg-blue-gray-600 !shadow-outline !shadow-blue-gray-300;
+    }
+    
+    .fi-sidebar {
+        @apply !bg-blue-gray-50 border-r border-none !shadow-inner !shadow-blue-gray-300;
+    }
+
+    .fi-topbar nav {
+        @apply !bg-gradient-to-r from-blue-gray-600 to-blue-gray-200;
+        @apply !border-y border-none;
+        @apply border-l border-none;
+        @apply !shadow-outline !shadow-blue-gray-300;
+        
+    }
+    
+    .fi-layout {
+        @apply !bg-gray-50;
+    }
+
+    .fi-simple-layout {
+        background-image: url("/images/background.jpg");
+        background-size: cover;
+    }
+    
+    .fi-simple-main {
+        @apply !shadow-lg;
+    }
+
+    .fi-sidebar-item-label {
+        @apply !text-light-blue-800;
+    }
+
+    .fi-sidebar-item-icon {
+        @apply !text-light-blue-600;
+    }
+
+    .fi-sidebar-group-label {
+        @apply !text-light-blue-900;
+    }
+
+    .fi-fo-date-time-picker-panel {
+        @apply !bg-gradient-to-r from-blue-gray-600 to-blue-gray-200 !shadow-lg;
+    }
+}

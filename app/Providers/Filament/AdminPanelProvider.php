@@ -7,10 +7,8 @@ use Filament\Panel;
 use Filament\Widgets;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Hasnayeen\Themes\ThemesPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
-use Hasnayeen\Themes\Http\Middleware\SetTheme;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -38,13 +36,14 @@ class AdminPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->breadcrumbs(true)
             ->favicon(asset('images/favicon.png'))
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([
                 'danger' => Color::hex('#EF5350'),
                 'info' => Color::hex('#E3F2FD'),
                 'success' => Color::hex('#8BC34A'),
                 'warning' => Color::hex('#FFA726'),
             ])
-            ->font('Montserrat')
+            ->font('Lato')
 
             //->maxContentWidth(MaxWidth::Full)
 
@@ -60,7 +59,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
-                ThemesPlugin::make(),
                 BreezyCore::make()
                 ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
                 ->enableTwoFactorAuthentication(
@@ -86,7 +84,6 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                SetTheme::class
             ])
             ->authMiddleware([
                 Authenticate::class,
